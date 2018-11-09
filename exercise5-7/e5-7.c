@@ -19,10 +19,11 @@ double funcos( double e, double x )
 	double res = 0.0;
 	double divisor = 0.0;
 	double dividend = 0.0;
-	int i,j;
+	int i=2;
+	int j;
 	int sign = 1;
 
-	for ( i=2; ; i+=2 ) {
+	do {
 		dividend = 1.0;
 		sign *= -1;
 		divisor = pow(x, i);
@@ -31,7 +32,7 @@ double funcos( double e, double x )
 		}
 		res = divisor/dividend;
 		sum += sign*(divisor/dividend);
-		if (res < e) break;	
-	}
+		i += 2;
+	} while (res > e);
 	return sum;
 }
