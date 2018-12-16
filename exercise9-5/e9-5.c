@@ -35,6 +35,7 @@
 //		printf("%s %d %s\n", p[i].name, p[i].birth, p[i].phone);
 //	}
 //	
+//	free(p); 
 //	return 0;
 //}
 
