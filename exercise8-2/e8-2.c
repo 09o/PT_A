@@ -1,20 +1,34 @@
-#include <stdio.h>
-
-void sum_diff( float op1, float op2, float *psum, float *pdiff );
-
-int main()
-{
-    float a, b, sum, diff;
-
-    scanf("%f %f", &a, &b);
-    sum_diff(a, b, &sum, &diff);
-    printf("The sum is %.2f\nThe diff is %.2f\n", sum, diff);
-	
-    return 0; 
+ #include <stdio.h>
+ #define MAXN 10
+ 
+ int search(int list[], int n, int x);
+ 
+ int main()
+ {
+ 	int i, index, n, x;
+ 	int a[MAXN];
+ 	
+ 	scanf("%d", &n);
+ 	for (i = 0; i < n; i++)
+ 		scanf("%d", &a[i]);
+ 	scanf("%d", &x);
+ 	index = search(a, n, x);
+ 	if (index != -1)
+ 		printf("index = %d\n", index);
+ 	else
+ 		printf("Not found\n");
+ 		
+ 	return 0;
 }
-
-void sum_diff( float op1, float op2, float *psum, float *pdiff )
+ 
+int search(int list[], int n, int x)
 {
-	*psum = op1 + op2;
-	*pdiff = op1 - op2;
+	int i, ret = -1;
+	for (i = 0; i < n; i++) {
+		if (list[i] == x) {
+			ret = i;
+			break;
+		}
+	}
+	return ret;
 }
